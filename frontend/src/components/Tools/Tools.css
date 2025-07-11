@@ -1,0 +1,305 @@
+/* Tools.css */
+
+:root {
+  --background-color: #f8f9fa;
+  --card-bg-color: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #718096;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.06);
+  
+  /* Tool-specific colors */
+  --color-add: #4299e1;
+  --color-delete: #f56565;
+  --color-edit: #38b2ac;
+  --color-update: #ecc94b;
+  --color-order: #9f7aea;
+  
+  /* Accent colors */
+  --accent-primary: #3182ce;
+  --accent-secondary: #805ad5;
+  --accent-tertiary: #dd6b20;
+}
+
+.tools-container {
+  padding: 2rem;
+  background-color: var(--background-color);
+  min-height: 100vh;
+}
+
+.tools-header {
+  margin-bottom: 3rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tools-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  padding-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.tools-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 3px;
+}
+
+.tools-subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0.75rem 0 0 0;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  padding: 1.75rem;
+  background-color: var(--card-bg-color);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--accent-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tool-card:nth-child(1)::before {
+  background-color: var(--color-add);
+}
+
+.tool-card:nth-child(2)::before {
+  background-color: var(--color-delete);
+}
+
+.tool-card:nth-child(3)::before {
+  background-color: var(--color-edit);
+}
+
+.tool-card:nth-child(4)::before {
+  background-color: var(--color-update);
+}
+
+.tool-card:nth-child(5)::before {
+  background-color: var(--color-order);
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tool-card:hover::before {
+  opacity: 1;
+}
+
+.tool-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.25rem;
+  font-size: 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.tool-card:nth-child(1) .tool-icon {
+  background-color: rgba(66, 153, 225, 0.1);
+  color: var(--color-add);
+}
+
+.tool-card:nth-child(2) .tool-icon {
+  background-color: rgba(245, 101, 101, 0.1);
+  color: var(--color-delete);
+}
+
+.tool-card:nth-child(3) .tool-icon {
+  background-color: rgba(56, 178, 172, 0.1);
+  color: var(--color-edit);
+}
+
+.tool-card:nth-child(4) .tool-icon {
+  background-color: rgba(236, 201, 75, 0.1);
+  color: var(--color-update);
+}
+
+.tool-card:nth-child(5) .tool-icon {
+  background-color: rgba(159, 122, 234, 0.1);
+  color: var(--color-order);
+}
+
+.tool-icon svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.tool-card:hover .tool-icon svg {
+  transform: scale(1.15);
+}
+
+.tool-content {
+  flex: 1;
+}
+
+.tool-content h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  transition: color 0.3s ease;
+}
+
+.tool-card:hover .tool-content h3 {
+  color: var(--accent-primary);
+}
+
+.tool-card:nth-child(1):hover .tool-content h3 {
+  color: var(--color-add);
+}
+
+.tool-card:nth-child(2):hover .tool-content h3 {
+  color: var(--color-delete);
+}
+
+.tool-card:nth-child(3):hover .tool-content h3 {
+  color: var(--color-edit);
+}
+
+.tool-card:nth-child(4):hover .tool-content h3 {
+  color: var(--color-update);
+}
+
+.tool-card:nth-child(5):hover .tool-content h3 {
+  color: var(--color-order);
+}
+
+.tool-content p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Card shine effect on hover */
+.tool-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.tool-card:hover::after {
+  opacity: 1;
+  animation: shine 1.5s forwards;
+}
+
+@keyframes shine {
+  0% {
+    left: -50%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  100% {
+    left: 150%;
+    opacity: 0;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .tools-container {
+    padding: 1.5rem;
+  }
+  
+  .tools-title {
+    font-size: 1.75rem;
+  }
+}
+
+/* Adding card count badges */
+.tools-grid {
+  position: relative;
+  counter-reset: card-counter;
+}
+
+.tool-card {
+  counter-increment: card-counter;
+}
+
+.tool-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background-color: var(--accent-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.tool-card:hover::before {
+  opacity: 1;
+}
+
+/* Add a subtle pattern to the background */
+.tools-container {
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+}

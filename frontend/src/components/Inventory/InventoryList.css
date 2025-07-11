@@ -1,0 +1,388 @@
+/* Inventory List Styling with Professional Color Palette */
+:root {
+  --primary-color: #2563eb;      /* Deep Blue */
+  --secondary-color: #10b981;    /* Emerald Green */
+  --accent-color: #6366f1;       /* Indigo */
+  --background-light: #f8fafc;   /* Soft Off-White */
+  --background-dark: #0f172a;    /* Deep Navy */
+  --text-primary: #0f172a;       /* Almost Black */
+  --text-secondary: #64748b;     /* Slate Gray */
+  --border-color: #e2e8f0;       /* Light Border */
+  --error-color: #ef4444;        /* Red */
+  --success-color: #10b981;      /* Green */
+}
+
+/* Base Styles */
+.inventory-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Header Styles */
+.inventory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.inventory-header h2 {
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+/* Action Container */
+.inventory-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Search Styles */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-secondary);
+  z-index: 10;
+}
+
+.search-input {
+  padding: 10px 10px 10px 40px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  width: 250px;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Add Button */
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button:hover {
+  background-color: color-mix(in srgb, var(--secondary-color) 90%, white);
+}
+
+/* Table Styles */
+.inventory-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.inventory-table thead {
+  background-color: var(--background-light);
+}
+
+.inventory-table th {
+  padding: 12px 15px;
+  text-align: left;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.inventory-table th:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.inventory-table td {
+  padding: 15px;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.inventory-table tbody tr:hover {
+  background-color: rgba(37, 99, 235, 0.025);
+}
+
+/* Selected Row Styles */
+.selected-row {
+  background-color: rgba(37, 99, 235, 0.1) !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button, 
+.delete-button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.edit-button:hover {
+  color: var(--primary-color);
+  background-color: rgba(37, 99, 235, 0.1);
+}
+
+.delete-button:hover {
+  color: var(--error-color);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Bulk Actions */
+.bulk-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(37, 99, 235, 0.05);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+}
+
+.bulk-delete-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.bulk-delete-button:hover {
+  background-color: color-mix(in srgb, var(--error-color) 90%, white);
+}
+
+/* Loading and Error States */
+.loading-spinner {
+  text-align: center;
+  padding: 50px;
+  color: var(--text-secondary);
+}
+
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.no-results {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 50px;
+}
+
+/* Footer Styles */
+.inventory-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Checkbox Styling */
+.inventory-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+  border: 1.5px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.inventory-table input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.inventory-table input[type="checkbox"]:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .inventory-container {
+    padding: 20px;
+  }
+
+  .inventory-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .inventory-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .inventory-table {
+    font-size: 0.8rem;
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inventory-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  .bulk-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .inventory-container {
+    box-shadow: none;
+  }
+
+  .inventory-header,
+  .search-container,
+  .add-button,
+  .bulk-actions,
+  .action-buttons {
+    display: none;
+  }
+
+  .inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .inventory-table th,
+  .inventory-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+}
+
+/* Accessibility Improvements */
+.inventory-table th:focus-visible,
+.inventory-table td:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px;
+}
+
+/* Animation for list interactions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.inventory-table tbody tr {
+  animation: fadeIn 0.3s ease;
+}
+
+/* Empty state illustration placeholder */
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  text-align: center;
+}
+
+.no-results::before {
+  content: '📦';
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Tooltip-like hover effect for long text */
+.inventory-table td {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inventory-table td:hover::after {
+  content: attr(data-full-text);
+  position: absolute;
+  background-color: var(--background-light);
+  border: 1px solid var(--border-color);
+  padding: 5px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+  white-space: normal;
+}
+
+/* Sorting Indicator Styles */
+.inventory-table th span {
+  margin-left: 5px;
+  font-size: 0.7rem;
+  color: var(--primary-color);
+}
+.inventory-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

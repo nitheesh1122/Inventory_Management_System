@@ -1,0 +1,61 @@
+.account-page {
+    display: flex;
+  }
+  
+  .account-container {
+    flex: 1;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .dark-mode .account-container {
+    background: #222;
+    color: white;
+  }
+  
+  .profile-card {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .profile-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .settings-section {
+    margin: 20px 0;
+  }
+  
+  .settings-section button {
+    padding: 10px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .logout-section {
+    margin-top: 20px;
+  }
+  
+  .logout-btn {
+    width: 100%;
+    background: red;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
